@@ -2,6 +2,7 @@ package com.example.yanl1393.mycontactapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -30,7 +31,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         Log.d("MyContactApp", "DatabaseHelper: contructed DataBaseHelper");
-        insertData("bob", "123 place", "4578356");
     }
 
     @Override
@@ -66,4 +66,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getAllData() {
+        Log.d("MyContactApp", "DatabaseHelper: pulling all records from db");
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
 }
