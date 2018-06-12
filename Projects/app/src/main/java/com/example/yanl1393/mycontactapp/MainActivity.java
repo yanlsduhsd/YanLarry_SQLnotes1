@@ -53,14 +53,12 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
 
         while (res.moveToNext()) {
-            //append res.column 0,1,2,3 to buffer
-            //delimit each append with \n
-
-            buffer.append("ID: " + res.getString(0)+"\n");
-            buffer.append("Name: " + res.getString(1)+"\n");
-            buffer.append("Address: " + res.getString(2)+"\n");
-            buffer.append("Phone #: " + res.getString(3)+"\n\n");
-
+            for (int i = 0; i < 4; i++)
+                buffer.append(String.format("%s: %s\n", res.getColumnName(i), res.getString(i)));
+//            buffer.append("ID: " + res.getString(0)+"\n");
+//            buffer.append("Name: " + res.getString(1)+"\n");
+//            buffer.append("Address: " + res.getString(2)+"\n");
+//            buffer.append("Phone #: " + res.getString(3)+"\n\n");
         }
 
         showMessage("Data:", buffer.toString());
@@ -93,11 +91,14 @@ public class MainActivity extends AppCompatActivity {
         while (res.moveToNext()) {
 
             if (res.getString(1).equals(editName.getText().toString())) {
-                buffer.append("ID: " + res.getString(0)+"\n");
-                buffer.append("Name: " + res.getString(1)+"\n");
-                buffer.append("Address: " + res.getString(2)+"\n");
-                buffer.append("Phone #: " + res.getString(3)+"\n\n");
+                for (int i = 0; i < 4; i++)
+                  buffer.append(String.format("%s: %s\n", res.getColumnName(i), res.getString(i)));
                 counter++;
+//                buffer.append("ID: " + res.getString(0)+"\n");
+//                buffer.append("Name: " + res.getString(1)+"\n");
+//                buffer.append("Address: " + res.getString(2)+"\n");
+//                buffer.append("Phone #: " + res.getString(3)+"\n\n");
+//                counter++;
             }
 
         }

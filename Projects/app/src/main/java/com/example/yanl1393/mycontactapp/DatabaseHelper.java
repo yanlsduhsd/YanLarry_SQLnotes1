@@ -10,12 +10,12 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Contact2018.db";
+    public static final String DATABASE_NAME = "Contact2018-1.db";
     public static final String TABLE_NAME = "Contact2018_table";
     public static final String ID = "ID";
-    public static final String COLUMN_NAME_CONTACT = "contact";
-    public static final String COLUMN_NAME_ADDRESS = "address";
-    public static final String COLUMN_NAME_PHONE = "phone";
+    public static final String COLUMN_NAME_CONTACT = "Name";
+    public static final String COLUMN_NAME_ADDRESS = "Address";
+    public static final String COLUMN_NAME_PHONE = "Phone";
 
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
